@@ -1,0 +1,10 @@
+{
+  "sync_folders": {
+    "~/openshift/src": {
+      "to": "/data/src"
+    },
+    "~/openshift/src/github.com/rhcarvalho/openshift-devtools": {
+      "to": "/scripts"
+    }
+  }
+}
