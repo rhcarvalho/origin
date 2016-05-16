@@ -3,8 +3,6 @@ source "$(dirname "${BASH_SOURCE}")/lib/init.sh"
 
 os::golang::verify_go_version
 
-mkdir -p _output/govet
-
 os::build::setup_env
 
 govet_blacklist=(
@@ -71,8 +69,7 @@ for test_dir in $ALL_DIRS
 do
   # use `grep` failure to determine that a directory is not in the blacklist
   if ! echo "${DIR_BLACKLIST}" | grep -q "${test_dir}"; then
-    go tool vet -shadow -shadowstrict $test_dir
-    if [ "$?" -ne "0" ]
+    if ! go tool vet -shadow -shadowstrict $test_dir
     then
       FAILURE=true
     fi

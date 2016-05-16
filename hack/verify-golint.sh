@@ -28,7 +28,7 @@ else
 fi
 
 if [[ -n "${bad_files}" ]]; then
-	echo "golint detected following problems:"
+	echo "!!! golint detected the following problems:"
 	echo "${bad_files}"
 	exit 1
 fi
